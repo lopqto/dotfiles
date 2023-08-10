@@ -15,6 +15,7 @@ return require('packer').startup(function(use)
     }
 
     use { "bluz71/vim-nightfly-colors", as = "nightfly" }
+    use { "folke/tokyonight.nvim", as = "tokyonight" }
 
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
 

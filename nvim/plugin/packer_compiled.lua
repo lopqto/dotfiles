@@ -143,6 +143,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/lopqto/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  tokyonight = {
+    loaded = true,
+    path = "/home/lopqto/.local/share/nvim/site/pack/packer/start/tokyonight",
+    url = "https://github.com/folke/tokyonight.nvim"
   }
 }
 

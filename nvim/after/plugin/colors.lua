@@ -1,4 +1,4 @@
-vim.cmd [[colorscheme nightfly]]
+vim.cmd [[colorscheme tokyonight-night]]
 vim.api.nvim_set_hl(0, "Normal", {
 	bg = "none"
 })
