@@ -16,6 +16,10 @@ return require('packer').startup(function(use)
 
     use { "bluz71/vim-nightfly-colors", as = "nightfly" }
     use { "folke/tokyonight.nvim", as = "tokyonight" }
+    use { "ellisonleao/gruvbox.nvim", as = "gruvbox" }
+    use { "savq/melange-nvim", as = "melange" }
+    use { 'nyoom-engineering/oxocarbon.nvim', as = 'oxocarbon' }
+    use { "sainnhe/sonokai", as = "sonokai" }
 
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
 
@@ -27,7 +31,7 @@ return require('packer').startup(function(use)
         requires = {
             -- LSP Support
             { 'neovim/nvim-lspconfig' }, -- Required
-            {                  -- Optional
+            {                            -- Optional
                 'williamboman/mason.nvim',
                 run = function()
                     pcall(vim.cmd, 'MasonUpdate')
@@ -36,9 +40,9 @@ return require('packer').startup(function(use)
             { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
             -- Autocompletion
-            { 'hrsh7th/nvim-cmp' }, -- Required
+            { 'hrsh7th/nvim-cmp' },     -- Required
             { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-            { 'L3MON4D3/LuaSnip' }, -- Required
+            { 'L3MON4D3/LuaSnip' },     -- Required
         }
     }
 

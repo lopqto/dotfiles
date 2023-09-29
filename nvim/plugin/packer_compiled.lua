@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/lopqto/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/home/lopqto/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/home/lopqto/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/home/lopqto/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/lopqto/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
+local package_path_str = "/home/lopqto/.cache/nvim/packer_hererocks/2.1.1694285958/share/lua/5.1/?.lua;/home/lopqto/.cache/nvim/packer_hererocks/2.1.1694285958/share/lua/5.1/?/init.lua;/home/lopqto/.cache/nvim/packer_hererocks/2.1.1694285958/lib/luarocks/rocks-5.1/?.lua;/home/lopqto/.cache/nvim/packer_hererocks/2.1.1694285958/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/lopqto/.cache/nvim/packer_hererocks/2.1.1694285958/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -89,6 +89,11 @@ _G.packer_plugins = {
     path = "/home/lopqto/.local/share/nvim/site/pack/packer/start/copilot.vim",
     url = "https://github.com/github/copilot.vim"
   },
+  gruvbox = {
+    loaded = true,
+    path = "/home/lopqto/.local/share/nvim/site/pack/packer/start/gruvbox",
+    url = "https://github.com/ellisonleao/gruvbox.nvim"
+  },
   harpoon = {
     loaded = true,
     path = "/home/lopqto/.local/share/nvim/site/pack/packer/start/harpoon",
@@ -108,6 +113,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/lopqto/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
+  },
+  melange = {
+    loaded = true,
+    path = "/home/lopqto/.local/share/nvim/site/pack/packer/start/melange",
+    url = "https://github.com/savq/melange-nvim"
   },
   nightfly = {
     loaded = true,
@@ -129,6 +139,11 @@ _G.packer_plugins = {
     path = "/home/lopqto/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
+  oxocarbon = {
+    loaded = true,
+    path = "/home/lopqto/.local/share/nvim/site/pack/packer/start/oxocarbon",
+    url = "https://github.com/nyoom-engineering/oxocarbon.nvim"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/lopqto/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -138,6 +153,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/lopqto/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  sonokai = {
+    loaded = true,
+    path = "/home/lopqto/.local/share/nvim/site/pack/packer/start/sonokai",
+    url = "https://github.com/sainnhe/sonokai"
   },
   ["telescope.nvim"] = {
     loaded = true,
