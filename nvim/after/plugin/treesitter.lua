@@ -1,6 +1,6 @@
 require 'nvim-treesitter.configs'.setup {
     ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "python", "go", "bash", "yaml", "make", "json", "toml",
-        "rust", "haskell", "sql", "dockerfile", "csv" },
+        "rust", "haskell", "sql", "dockerfile", "csv", "zig" },
     sync_install = false,
     auto_install = true,
 
