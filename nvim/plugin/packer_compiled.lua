@@ -184,6 +184,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/lopqto/.local/share/nvim/site/pack/packer/start/tokyonight",
     url = "https://github.com/folke/tokyonight.nvim"
+  },
+  ["vim-gitgutter"] = {
+    loaded = true,
+    path = "/Users/lopqto/.local/share/nvim/site/pack/packer/start/vim-gitgutter",
+    url = "https://github.com/airblade/vim-gitgutter"
   }
 }
 
