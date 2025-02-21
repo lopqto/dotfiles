@@ -1,4 +1,4 @@
-vim.cmd [[colorscheme gruvbox]]
+vim.cmd [[colorscheme nightfly]]
 vim.api.nvim_set_hl(0, "Normal", {
 	bg = "none"
 })
