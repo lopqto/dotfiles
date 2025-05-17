@@ -9,8 +9,9 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     use {
-    "williamboman/mason.nvim"
-}
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim"
+    }
 
     use {
         'nvim-telescope/telescope.nvim', branch = '0.1.x',

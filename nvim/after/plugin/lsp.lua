@@ -70,7 +70,13 @@ require 'lspconfig'.pylsp.setup {
     }
 }
 
-require'lspconfig'.nim_langserver.setup{}
+require 'lspconfig'.hls.setup {
+    cmd = { 'haskell-language-server-9.8.4', '--lsp' },
+    filetypes = { 'haskell' },
+    root_dir = require('lspconfig').util.root_pattern('stack.yaml', 'cabal.project', 'cabal.project.local', '.git'),
+}
+
+require 'lspconfig'.nixd.setup {}
 
 local cmp = require('cmp')
 
@@ -85,6 +91,6 @@ cmp.setup({
         end,
     },
     mapping = cmp.mapping.preset.insert({
-        ['<CR>'] = cmp.mapping.confirm({ select = true }),
+        -- ['<CR>'] = cmp.mapping.confirm({ select = true }),
     }),
 })
