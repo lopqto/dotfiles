@@ -51,13 +51,15 @@ require('lspconfig').lua_ls.setup({
     },
 })
 
-require('lspconfig').gopls.setup({
+local lspconfig = require('lspconfig')
+
+lspconfig.gopls.setup({
     cmd = { 'gopls', 'serve' },
     filetypes = { 'go', 'gomod' },
     root_dir = require('lspconfig').util.root_pattern('go.mod', '.git'),
 })
 
-require('lspconfig').pylsp.setup {
+lspconfig.pylsp.setup {
     settings = {
         pylsp = {
             plugins = {
@@ -70,32 +72,32 @@ require('lspconfig').pylsp.setup {
     }
 }
 
-require('lspconfig').jsonls.setup({
+lspconfig.jsonls.setup({
     cmd = { 'vscode-json-language-server', '--stdio' },
     filetypes = { 'json', 'jsonc' },
     root_dir = require('lspconfig').util.root_pattern('.git', 'package.json'),
 })
 
 
-require('lspconfig').html.setup({
+lspconfig.html.setup({
     cmd = { 'vscode-html-language-server', '--stdio' },
     filetypes = { 'html', 'htmldjango' },
     root_dir = require('lspconfig').util.root_pattern('.git', 'package.json'),
 })
 
-require('lspconfig').eslint.setup({
+lspconfig.eslint.setup({
     cmd = { 'vscode-eslint-language-server', '--stdio' },
     filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
     root_dir = require('lspconfig').util.root_pattern('.git', 'package.json'),
 })
 
-require('lspconfig').dockerls.setup({
+lspconfig.dockerls.setup({
     cmd = { 'docker-langserver', '--stdio' },
     filetypes = { 'dockerfile' },
     root_dir = require('lspconfig').util.root_pattern('.git', 'Dockerfile'),
 })
 
-require('lspconfig').ansiblels.setup({
+lspconfig.ansiblels.setup({
     cmd = { 'ansible-language-server', '--stdio' },
     filetypes = { 'yaml.ansible' },
     root_dir = require('lspconfig').util.root_pattern('.git', 'ansible.cfg'),
