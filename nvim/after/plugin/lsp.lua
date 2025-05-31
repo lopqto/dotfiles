@@ -76,6 +76,31 @@ require('lspconfig').jsonls.setup({
     root_dir = require('lspconfig').util.root_pattern('.git', 'package.json'),
 })
 
+
+require('lspconfig').html.setup({
+    cmd = { 'vscode-html-language-server', '--stdio' },
+    filetypes = { 'html', 'htmldjango' },
+    root_dir = require('lspconfig').util.root_pattern('.git', 'package.json'),
+})
+
+require('lspconfig').eslint.setup({
+    cmd = { 'vscode-eslint-language-server', '--stdio' },
+    filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
+    root_dir = require('lspconfig').util.root_pattern('.git', 'package.json'),
+})
+
+require('lspconfig').dockerls.setup({
+    cmd = { 'docker-langserver', '--stdio' },
+    filetypes = { 'dockerfile' },
+    root_dir = require('lspconfig').util.root_pattern('.git', 'Dockerfile'),
+})
+
+require('lspconfig').ansiblels.setup({
+    cmd = { 'ansible-language-server', '--stdio' },
+    filetypes = { 'yaml.ansible' },
+    root_dir = require('lspconfig').util.root_pattern('.git', 'ansible.cfg'),
+})
+
 local cmp = require('cmp')
 
 cmp.setup({
