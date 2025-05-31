@@ -37,7 +37,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 -- You'll find a list of language servers here:
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 -- These are example language servers.
-require('lspconfig').ocamllsp.setup({})
+
 require('lspconfig').lua_ls.setup({
     settings = {
         Lua = {
@@ -57,7 +57,7 @@ require('lspconfig').gopls.setup({
     root_dir = require('lspconfig').util.root_pattern('go.mod', '.git'),
 })
 
-require 'lspconfig'.pylsp.setup {
+require('lspconfig').pylsp.setup {
     settings = {
         pylsp = {
             plugins = {
@@ -70,13 +70,11 @@ require 'lspconfig'.pylsp.setup {
     }
 }
 
-require 'lspconfig'.hls.setup {
-    cmd = { 'haskell-language-server-9.8.4', '--lsp' },
-    filetypes = { 'haskell' },
-    root_dir = require('lspconfig').util.root_pattern('stack.yaml', 'cabal.project', 'cabal.project.local', '.git'),
-}
-
-require 'lspconfig'.nixd.setup {}
+require('lspconfig').jsonls.setup({
+    cmd = { 'vscode-json-language-server', '--stdio' },
+    filetypes = { 'json', 'jsonc' },
+    root_dir = require('lspconfig').util.root_pattern('.git', 'package.json'),
+})
 
 local cmp = require('cmp')
 
