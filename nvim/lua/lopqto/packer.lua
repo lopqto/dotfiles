@@ -68,5 +68,4 @@ return require('packer').startup(function(use)
 
     use { 'tpope/vim-commentary' }
 
-    use { 'github/copilot.vim' }
 end)
