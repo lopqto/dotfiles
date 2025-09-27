@@ -5,14 +5,15 @@
 -- Reserve a space in the gutter
 vim.opt.signcolumn = 'yes'
 
--- Add cmp_nvim_lsp capabilities settings to lspconfig
--- This should be executed before you configure any language server
-local lspconfig_defaults = require('lspconfig').util.default_config
-lspconfig_defaults.capabilities = vim.tbl_deep_extend(
-    'force',
-    lspconfig_defaults.capabilities,
-    require('cmp_nvim_lsp').default_capabilities()
-)
+-- Extend the global config so every server advertises cmp capabilities
+vim.lsp.config('*', {
+    capabilities = vim.tbl_deep_extend(
+        'force',
+        {},
+        vim.lsp.config['*'].capabilities or {},
+        require('cmp_nvim_lsp').default_capabilities()
+    ),
+})
 
 -- This is where you enable features that only work
 -- if there is a language server active in the file
@@ -38,7 +39,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 -- These are example language servers.
 
-require('lspconfig').lua_ls.setup({
+local function root_dir_from_markers(markers)
+    return function(bufnr, on_dir)
+        on_dir(vim.fs.root(bufnr, markers))
+    end
+end
+
+vim.lsp.config('lua_ls', {
     settings = {
         Lua = {
             diagnostics = {
@@ -51,57 +58,56 @@ require('lspconfig').lua_ls.setup({
     },
 })
 
-local lspconfig = require('lspconfig')
-
-lspconfig.gopls.setup({
+vim.lsp.config('gopls', {
     cmd = { 'gopls', 'serve' },
     filetypes = { 'go', 'gomod' },
-    root_dir = require('lspconfig').util.root_pattern('go.mod', '.git'),
+    root_dir = root_dir_from_markers({ 'go.mod', '.git' }),
 })
 
-lspconfig.pylsp.setup {
+vim.lsp.config('pylsp', {
     settings = {
         pylsp = {
             plugins = {
                 pycodestyle = {
                     ignore = { 'W391' },
-                    maxLineLength = 100
-                }
-            }
-        }
-    }
-}
+                    maxLineLength = 100,
+                },
+            },
+        },
+    },
+})
 
-lspconfig.jsonls.setup({
+vim.lsp.config('jsonls', {
     cmd = { 'vscode-json-language-server', '--stdio' },
     filetypes = { 'json', 'jsonc' },
-    root_dir = require('lspconfig').util.root_pattern('.git', 'package.json'),
+    root_dir = root_dir_from_markers({ '.git', 'package.json' }),
 })
 
-
-lspconfig.html.setup({
+vim.lsp.config('html', {
     cmd = { 'vscode-html-language-server', '--stdio' },
     filetypes = { 'html', 'htmldjango' },
-    root_dir = require('lspconfig').util.root_pattern('.git', 'package.json'),
+    root_dir = root_dir_from_markers({ '.git', 'package.json' }),
 })
 
-lspconfig.eslint.setup({
+vim.lsp.config('eslint', {
     cmd = { 'vscode-eslint-language-server', '--stdio' },
     filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
-    root_dir = require('lspconfig').util.root_pattern('.git', 'package.json'),
+    root_dir = root_dir_from_markers({ '.git', 'package.json' }),
 })
 
-lspconfig.dockerls.setup({
+vim.lsp.config('dockerls', {
     cmd = { 'docker-langserver', '--stdio' },
     filetypes = { 'dockerfile' },
-    root_dir = require('lspconfig').util.root_pattern('.git', 'Dockerfile'),
+    root_dir = root_dir_from_markers({ '.git', 'Dockerfile' }),
 })
 
-lspconfig.ansiblels.setup({
+vim.lsp.config('ansiblels', {
     cmd = { 'ansible-language-server', '--stdio' },
     filetypes = { 'yaml.ansible' },
-    root_dir = require('lspconfig').util.root_pattern('.git', 'ansible.cfg'),
+    root_dir = root_dir_from_markers({ '.git', 'ansible.cfg' }),
 })
+
+vim.lsp.enable({ 'lua_ls', 'gopls', 'pylsp', 'jsonls', 'html', 'eslint', 'dockerls', 'ansiblels' })
 
 local cmp = require('cmp')
 
